@@ -49,5 +49,5 @@ IFS='_' read -r -a ary <<< "$polname"
 
 echo "${axwayprojdeploy} --dir=$workdir --passphrase-none --name=${ary[0]}_${ary[1]} --type=pol --deploy-to --host-name=$env2conn --port=443 --user-name=$uname --password=$password --group-name=\"${destGroupName}\" --includes \"${destServerName}\" --apply-env=$workdir/env/$envFile"
 
-${axwayprojdeploy} --dir=$workdir --passphrase-none --name=${ary[0]}_${ary[1]} --type=pol --deploy-to --host-name=$env2conn --port=443 --user-name=$uname --password=$password --group-name="${destGroupName}" --includes "${destServerName}"  --apply-env=$workdir/env/$envFile
+
 
