@@ -1,53 +1,34 @@
 #!/bin/bash
 
-polname=$1
-workdir=$2
-uname=$3
-password=$4
-env=$5
+env=$1
 file="../conf/mft.conf"
 
 if [ -f "$file" ]
 then
   echo "$file found."
-
-  while IFS='=' read -r key value
+  
+  dt=$(date '+%d%m%Y%H%M%S');
+  mkdir -p ../../deploy/deployPkg_$dt
+  cp ../conf/Install_Axway_Installer_V4.8.0.properties ../../deploy/deployPkg_$dt/
+  cp ../conf/Install_SecureTransport_V5.4.properties ../../deploy/deployPkg_$dt/
+  
+  # This needs to be improved to avoid using multiple sed commands..... 
+  while IFS=' = ' read -r key value
   do
-    key=$(echo $key | tr '.' '_')
-    eval ${key}=\${value}
+	key_temp=_$key"_"
+    echo key: $key_temp ":" $value
+	sed -i 's/'$key_temp'/'$value'/g' ../../deploy/deployPkg_$dt/Install_Axway_Installer_V4.8.0.properties
+	sed -i 's/'$key_temp'/'$value'/g' ../../deploy/deployPkg_$dt/Install_SecureTransport_V5.4.properties
+	
   done < "$file"
-
-  echo "Group: ${destGroupName}"
-  echo "Server: ${destServerName}"
 
 else
   echo "$file not found."
 fi
 
-if [ "$env" == "DEV" ]
-then
-	env2conn=${DEV}
-	envFile=${DEVenvFile}
-elif [ "$env" == "UAT" ]
-then
-	env2conn=${UAT}
-	envFile=${UATenvFile}
-elif [ "$env" == "PROD" ]
-then
-	env2conn=${PRD}
-	envFile=${PRDenvFile}
-else
-  echo "Unknown $env setting."
-  env2conn="Unknown"
-  envFile="Unknown"
-fi
-
-echo "Connection to $env2conn"
-IFS='_' read -r -a ary <<< "$polname"
-
-#ping -c 2 $env2conn
-
-echo "${axwayprojdeploy} --dir=$workdir --passphrase-none --name=${ary[0]}_${ary[1]} --type=pol --deploy-to --host-name=$env2conn --port=443 --user-name=$uname --password=$password --group-name=\"${destGroupName}\" --includes \"${destServerName}\" --apply-env=$workdir/env/$envFile"
-
-
-
+# Actual: should get MFT installation binary from Artifactory by Octopus tool. 
+# Dummy: for testing in the lab or in AWS, this needs to be available from ~/st54/SecureTransport_5.4.0_Install_linux-x86-64_BN1125.zip
+mkdir -p ../../deploy/deployPkg_$dt/install_binary
+unzip ~/st54/SecureTransport_5.4.0_Install_linux-x86-64_BN1125.zip -d ../../deploy/deployPkg_$dt/install_binary/
+cd ../../deploy/deployPkg_$dt/install_binary/
+ls
