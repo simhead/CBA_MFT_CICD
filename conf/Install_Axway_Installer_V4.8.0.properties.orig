@@ -26,7 +26,7 @@ CreationDate.Type = Date
 CreationDate.Format = dd-MM-yyyy HH:mm
 
 
-InstallMode = _InstallMode_
+InstallMode = Standard
 
 
 DVDLocation = 
@@ -37,7 +37,7 @@ LevelOfExpertise.Show = true
 LevelOfExpertise.Level = 3
 
 
-InstallDir = _InstallDir_/
+InstallDir = /app/Axway/
 
 
 InstallationLogicalName = SecureTransport02

@@ -13,7 +13,7 @@ Component.LimitedCluster = NoCluster
 Component.FileIdent = ST
 Component.AllowSpaceInDirectoryName = true
 Component.Implementation = Java
-Component.JavaHome = _InstallDir_/Java/linux-x86/jre7_u51_64
+Component.JavaHome = /app/Axway/Java/linux-x86/jre7_u51_64
 
 
 IntegrationDir = SecureTransport_V5.4
@@ -55,22 +55,22 @@ Edge.ParentName = SecureTransport
 Edge.Title = Edge
 
 
-InstallDir = _InstallDir_/SecureTransport/
+InstallDir = /app/Axway/SecureTransport/
 
 
-userName = _userName_
+userName = mftcba
 
 
-isNonRootInstall = _isNonRootInstall_
+isNonRootInstall = true
 
 
-dbType = _dbType_
+dbType = useMySQLLocal
 
 
-mySQLPort = _mySQLPort_
-mySQLPort.Type = _mySQLPort.Type_
-mySQLPort.Max = _mySQLPort.Max_
-mySQLPort.Min = _mySQLPort.Min_
+mySQLPort = 33060
+mySQLPort.Type = IPPortOwner
+mySQLPort.Max = 65535
+mySQLPort.Min = 1024
 
 
 externalDBUseExistingSchema = false
@@ -79,7 +79,7 @@ externalDBUseExistingSchema = false
 externalDBUseSecureConnection = false
 
 
-sslAdminPort = _sslAdminPort_
+sslAdminPort = 8444
 sslAdminPort.Type = Integer
 
 
