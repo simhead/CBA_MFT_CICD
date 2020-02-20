@@ -12,6 +12,7 @@ if [ -f "$STstopscript" ]
 then
   echo "$STstopscript found hence stop all ST processes"
   $STstopscript
+  rm -rf /app/Axway/
 else
   echo "$STstopscript not found hence NOTHING TO DO"
 fi
