@@ -57,6 +57,8 @@ ls
 
 ./setup.sh -s ../Install_Axway_Installer_V4.8.0.properties
 
-netstat -nlt | grep 8444
+echo "listening PORT for admin "netstat -nlt | grep 8444
+
+echo "Location for bin folder: "$InstallDir
 
 
