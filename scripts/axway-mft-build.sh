@@ -60,5 +60,9 @@ ls
 echo "listening PORT for admin "netstat -nlt | grep 8444
 
 echo "Location for bin folder: "$InstallDir
-
+echo "Place license file then stop and restart processes"
+cp ../license/* $InstallDir/SecureTransport/conf/
+$InstallDir/SecureTransport/bin/stop_all
+sleep 5
+$InstallDir/SecureTransport/bin/start_all
 
