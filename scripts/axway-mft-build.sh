@@ -3,6 +3,15 @@
 env=$1
 file="../conf/mft.conf"
 InstallDir="/"
+STstopscript="/app/Axway/SecureTransport/bin/stop_all"
+
+if [ -f "$STstopscript" ]
+then
+  echo "$STstopscript found hence stop all ST processes"
+  $STstopscript
+else
+  echo "$STstopscript not found hence NOTHING TO DO"
+fi
 
 if [ -f "$file" ]
 then
