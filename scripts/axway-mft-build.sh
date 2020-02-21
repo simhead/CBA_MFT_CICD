@@ -23,7 +23,7 @@ then
   cp ../conf/Install_Axway_Installer_V4.8.0.properties ../../deploy/deployPkg_$dt/
   cp ../conf/Install_SecureTransport_V5.4.properties ../../deploy/deployPkg_$dt/
   
-  # This needs to be improved to avoid using multiple sed commands..... 
+  # This needs to be improved to avoid using multiple sed commands.....     
   while IFS=' = ' read -r key value
   do
     if [ $key == 'InstallDir' ]
@@ -34,7 +34,8 @@ then
 	elif [ $key == 'InstallTempDir' ]
 	then
 		echo 'Install Temp Directory '$value
-		TEMPORARY_DIR=$value
+		echo "$value" | sed -r 's/\\//g'
+		TEMPORARY_DIR=${value//\\/}
 		export TEMPORARY_DIR
     fi
     key_temp=_$key"_"
