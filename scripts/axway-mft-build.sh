@@ -37,8 +37,8 @@ then
 	then
 		echo 'Install Temp Directory '$value
 		echo "$value" | sed -r 's/\\//g'
-		export TEMPORARY_DIR="${value//\\/}"
-		echo 'Temp DIR: '$TEMPORARY_DIR
+		#export TEMPORARY_DIR="${value//\\/}"
+		#echo 'Temp DIR: '$TEMPORARY_DIR
     fi
     key_temp=_$key"_"
     echo key: $key_temp ":" $value
