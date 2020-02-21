@@ -5,6 +5,9 @@ file="../conf/mft.conf"
 InstallDir="/"
 STstopscript="/app/Axway/SecureTransport/bin/stop_all"
 
+TEMPORARY_DIR=$HOME
+export TEMPORARY_DIR
+
 if [ -f "$STstopscript" ]
 then
   echo "$STstopscript found hence stop all ST processes"
