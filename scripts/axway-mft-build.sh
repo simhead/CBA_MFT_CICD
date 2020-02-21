@@ -37,6 +37,7 @@ then
 		echo "$value" | sed -r 's/\\//g'
 		TEMPORARY_DIR=${value//\\/}
 		export TEMPORARY_DIR
+		echo 'Temp DIR: '$TEMPORARY_DIR
     fi
     key_temp=_$key"_"
     echo key: $key_temp ":" $value
