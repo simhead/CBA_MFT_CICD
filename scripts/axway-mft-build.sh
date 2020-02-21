@@ -71,3 +71,5 @@ $InstallDir/SecureTransport/bin/stop_all
 sleep 5
 $InstallDir/SecureTransport/bin/start_all
 
+echo 'checking Temp Install: '$TEMPORARY_DIR
+
