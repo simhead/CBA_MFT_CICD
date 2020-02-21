@@ -37,8 +37,8 @@ then
 	then
 		echo 'Install Temp Directory '$value
 		echo "$value" | sed -r 's/\\//g'
-		#export TEMPORARY_DIR="${value//\\/}"
-		#echo 'Temp DIR: '$TEMPORARY_DIR
+		TEMP_DIR="${value//\\/}"
+		echo 'Temp DIR: '$TEMP_DIR
     fi
     key_temp=_$key"_"
     echo key: $key_temp ":" $value
@@ -51,6 +51,7 @@ else
   echo "$file not found."
 fi
 
+export TEMPORARY_DIR="$TEMP_DIR"
 # Actual: should get MFT installation binary from Artifactory by Octopus tool. 
 # Dummy: for testing in the lab or in AWS, this needs to be available from ~/st54/SecureTransport_5.4.0_Install_linux-x86-64_BN1125.zip
 mkdir -p ../../deploy/deployPkg_$dt/install_binary
