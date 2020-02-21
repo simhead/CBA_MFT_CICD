@@ -5,9 +5,6 @@ file="../conf/mft.conf"
 InstallDir="/"
 STstopscript="/app/Axway/SecureTransport/bin/stop_all"
 
-TEMPORARY_DIR=$HOME
-export TEMPORARY_DIR
-
 if [ -f "$STstopscript" ]
 then
   echo "$STstopscript found hence stop all ST processes"
@@ -34,6 +31,11 @@ then
         echo "$value" | sed -r 's/\\//g'
         InstallDir=${value//\\/}
         echo Install Directory: $InstallDir
+	elif [ $key == 'InstallTempDir' ]
+	then
+		echo 'Install Temp Directory '$value
+		TEMPORARY_DIR=$value
+		export TEMPORARY_DIR
     fi
     key_temp=_$key"_"
     echo key: $key_temp ":" $value
