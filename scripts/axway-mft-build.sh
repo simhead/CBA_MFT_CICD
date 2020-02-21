@@ -1,9 +1,12 @@
 #!/bin/bash
 
-env=$1
+tempdir=$1
 file="../conf/mft.conf"
 InstallDir="/"
 STstopscript="/app/Axway/SecureTransport/bin/stop_all"
+
+numArgs=$#
+echo "The number of arguments is: $numArgs"
 
 export TEMPORARY_DIR="$HOME"
 
@@ -39,6 +42,7 @@ then
 		echo "$value" | sed -r 's/\\//g'
 		TEMP_DIR="${value//\\/}"
 		echo 'Temp DIR: '$TEMP_DIR
+
     fi
     key_temp=_$key"_"
     echo key: $key_temp ":" $value
