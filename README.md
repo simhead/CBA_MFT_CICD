@@ -1,7 +1,7 @@
 # CBA_MFT_CICD
 
 How to use script:
-1. git clone the source
+1. git clone the source and place license files in ./license/ folder
 2. cd to ./CBA/MFT/CICD/scripts folder
 3. exec script: ./axway-mft-build.sh <option server or edge>&nbsp;
    eg. ./axway-mft-build.sh server
