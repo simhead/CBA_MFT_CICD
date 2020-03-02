@@ -5,8 +5,7 @@ How to use script:
 2. place license files in ./license/ folder
 3. create folder as ~/st54 and place st54 binary into the folder
 4. cd to ./CBA/MFT/CICD/scripts folder
-5. exec script: ./axway-mft-build.sh <option server or edge>&nbsp;
-   eg. ./axway-mft-build.sh server
+5. exec script: ./axway-mft-build.sh eg. ./axway-mft-build.sh server|edge
 6. check running ports after installation done&nbsp;
    netstat -nlt
 
