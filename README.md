@@ -1,5 +1,15 @@
 # CBA_MFT_CICD
 
+How to use script:
+1. git clone the source
+2. cd to ./CBA/MFT/CICD/scripts folder
+3. exec script: ./axway-mft-build.sh <option server or edge>
+   eg. ./axway-mft-build.sh server
+4. check running ports after installation done
+   netstat -nlt
+
+NOTE: Below is the procedure to obtain property files required by the script
+
 Silent installation – 
 A silent installation method is available. This method of installation allows you to carry out an installation without any questions being asked by the installer. To perform a silent installation: 
 1. Start the SecureTransport install in normal mode. 
@@ -38,4 +48,3 @@ Example:
 	------------------------------------------------------------------------------
 	You have new mail in /var/spool/mail/mftcba
 	```
-2. Validate setup

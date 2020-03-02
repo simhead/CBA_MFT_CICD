@@ -1,12 +1,30 @@
 #!/bin/bash
 
-tempdir=$1
+serverType=$1
 file="../conf/mft.conf"
 InstallDir="/"
 STstopscript="/app/Axway/SecureTransport/bin/stop_all"
 
 numArgs=$#
 echo "The number of arguments is: $numArgs"
+if [ $numArgs \> 0 ]
+then
+  echo "ARGs exist"
+  serverType=`echo $serverType | tr '[A-Z]' '[a-z]'`
+  echo "Server Type: "$serverType
+  if [ $serverType == 'edge' ]
+  then
+     echo "ARG--This is for EDGE installation"
+     serverType='edge'
+  else
+     echo "ARG--This is for SERVER installation"
+     serverType='server'
+  fi
+  
+else
+  echo "This is for SERVER installation"
+  serverType='server'
+fi
 
 export TEMPORARY_DIR="$HOME"
 
@@ -25,8 +43,9 @@ then
   
   dt=$(date '+%d%m%Y%H%M%S');
   mkdir -p ../../deploy/deployPkg_$dt
+  propertyType='../conf/Install_SecureTransport_V5.4_'$serverType'.properties'
   cp ../conf/Install_Axway_Installer_V4.8.0.properties ../../deploy/deployPkg_$dt/
-  cp ../conf/Install_SecureTransport_V5.4.properties ../../deploy/deployPkg_$dt/
+  cp $propertyType ../../deploy/deployPkg_$dt/Install_SecureTransport_V5.4.properties
   
   # This needs to be improved to avoid using multiple sed commands.....     
   while IFS=' = ' read -r key value
