@@ -1,11 +1,13 @@
 # CBA_MFT_CICD
 
 How to use script:
-1. git clone the source and place license files in ./license/ folder
-2. cd to ./CBA/MFT/CICD/scripts folder
-3. exec script: ./axway-mft-build.sh <option server or edge>&nbsp;
+1. git clone the source 
+2. place license files in ./license/ folder
+3. create folder as ~/st54 and place st54 binary into the folder
+4. cd to ./CBA/MFT/CICD/scripts folder
+5. exec script: ./axway-mft-build.sh <option server or edge>&nbsp;
    eg. ./axway-mft-build.sh server
-4. check running ports after installation done&nbsp;
+6. check running ports after installation done&nbsp;
    netstat -nlt
 
 NOTE: Below is the procedure to obtain property files required by the script
