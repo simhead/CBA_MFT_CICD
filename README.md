@@ -4,12 +4,32 @@ How to use script:
 1. git clone the source 
 2. place license files in ./license/ folder
 3. create folder as ~/st54 and place st54 binary into the folder
-4. cd to ./CBA/MFT/CICD/scripts folder
-5. exec script: ./axway-mft-build.sh eg. ./axway-mft-build.sh server|edge
-6. check running ports after installation done&nbsp;
+4. IF parameters need to be changed THEN modify ./conf/mft.conf, e.g edit default port 8444 to something else.
+5. cd to ./CBA/MFT/CICD/scripts folder
+6. exec script: ./axway-mft-build.sh eg. ./axway-mft-build.sh server|edge
+7. check running ports after installation done&nbsp;
    netstat -nlt
 
-NOTE: Below is the procedure to obtain property files required by the script
+PENDING:
+- STS and STE communication (integration) : work in progress
+- Artifactory integration : Binary extraction and deplyment build should be stored in CBA's arctifactory
+
+NOTE 1: the following parametes are configurable now (located at ./conf/mft.conf)
+	InstallMode = Standard
+	InstallDir = \/app\/Axway
+	InstallTempDir = \/home\/mftcba\/mytmp
+	userName = mftcba
+	isNonRootInstall = true
+	dbType = useMySQLLocal
+	mySQLPort = 33060
+	mySQLPort.Type = IPPortOwner
+	mySQLPort.Max = 65535
+	mySQLPort.Min = 1024
+	sslAdminPort = 8444
+	IncludeFiles.SecureTransport = Install_SecureTransport_V5.4.properties
+
+
+NOTE 2: Below is the procedure to obtain property files required by the script
 
 Silent installation – 
 A silent installation method is available. This method of installation allows you to carry out an installation without any questions being asked by the installer. To perform a silent installation: 
