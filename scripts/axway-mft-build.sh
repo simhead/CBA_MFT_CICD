@@ -84,7 +84,7 @@ cp ../license/*.license ../../deploy/deployPkg_$dt/install_binary/
 cd ../../deploy/deployPkg_$dt/install_binary/
 ls
 
-./setup.sh -s ../Install_Axway_Installer_V4.8.0.properties
+./setup.sh -s ../Install_Axway_Installer_V4.8.0.properties -javaargument -Djava.io.tmpdir=$TEMPORARY_DIR
 
 echo "listening PORT for admin "netstat -nlt | grep 8444
 
